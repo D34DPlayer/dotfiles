@@ -1,0 +1,2 @@
+#! /bin/bash
+xinput set-prop "HUION 420 Pen Pen (0)" --type=float "Coordinate Transformation Matrix" 2.6 0 -0.1 0 2.6 -0.4 0 0 1

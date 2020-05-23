@@ -1,0 +1,15 @@
+#!/usr/bin/zsh
+
+serverlist=("sf4" "rad" "po3" "dw" "sa" "sb2" "pixelmon")
+
+if [[ $1 = "launcher" ]]; then
+/usr/java/bin/java -jar "$HOME/CL/Launcher.jar"
+elif [[ ${serverlist[(ie)$2]} -gt ${#serverlist} ]]; then
+echo "Usage : CL ssh/sftp server"
+elif [[ $1 = "ssh" ]]; then
+konsole -e ssh "$argv[2]"
+elif [[ $1 = "sftp" ]]; then
+konqueror "sftp://staff@$argv[2].craftersland.net"
+else
+echo 'Usage : CL ssh/sftp server or CL launcher'
+fi

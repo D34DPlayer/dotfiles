@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+if [[ $# -lt 1 ]]; then
+	echo 'You can start, view and stop your Win 7 machine'
+fi
+if [[ ${argv[(ie)start]} -le ${#argv} ]]; then
+	virsh --connect qemu:///system start win7
+fi
+if [[ ${argv[(ie)view]} -le ${#argv} ]]; then
+	remote-viewer spice://127.0.0.1:5900 &
+fi
+if [[ ${argv[(ie)stop]} -le ${#argv} ]]; then
+	virsh --connect qemu:///system shutdown win7
+fi
