@@ -16,12 +16,12 @@ local slider =
 slider:connect_signal(
   'property::value',
   function()
-    spawn('brightness --set ' .. math.max(slider.value, 5))
+    spawn('light -S ' .. math.max(slider.value, 5))
   end
 )
 
 watch(
-  [[bash -c "brightness --get"]],
+  [[bash -c "light -G"]],
   1,
   function(widget, stdout, stderr, exitreason, exitcode)
     local brightness = string.match(stdout, '(%d+)')

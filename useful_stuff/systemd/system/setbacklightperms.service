@@ -1,0 +1,12 @@
+[Unit]
+Description=Everyone can change screen backlight
+After=nodered.service
+
+[Service]
+ExecStart=/bin/bash -c "/bin/chmod a+w /sys/class/backlight/intel_backlight/brightness"
+Type=oneshot
+User=root
+
+[Install]
+WantedBy=multi-user.target
+
